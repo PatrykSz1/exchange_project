@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: patrykszmcz459@gmail.com
+    password: root
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+  application:
+    name: exchange-api
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 2000
+            readTimeout: 5000
+
+external:
+  exchange-api:
+    base-url: https://api.exchangeratesapi.io/v1
+    access-key: cb9bf701e9fda89cafcf6a5641c9f4ed
+
+app:
+  security:
+    user: user
+    password: user
+  mail:
+    to: patryk.szymanczyk1@gmail.com
