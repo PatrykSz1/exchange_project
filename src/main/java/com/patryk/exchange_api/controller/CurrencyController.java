@@ -1,7 +1,7 @@
 package com.patryk.exchange_api.controller;
 
 import com.patryk.exchange_api.model.ConvertRequest;
-import com.patryk.exchange_api.model.ConvertResult;
+import com.patryk.exchange_api.model.ConvertResponse;
 import com.patryk.exchange_api.model.Currencies;
 import com.patryk.exchange_api.service.CurrencyService;
 import jakarta.validation.Valid;
@@ -23,7 +23,7 @@ public class CurrencyController {
     }
 
     @GetMapping("/convert")
-    public ConvertResult convert(@Valid ConvertRequest convertRequest) {
+    public ConvertResponse convert(@Valid ConvertRequest convertRequest) {
         return service.convert(convertRequest);
     }
 }

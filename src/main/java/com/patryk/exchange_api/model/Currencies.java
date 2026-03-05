@@ -13,7 +13,6 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Currencies {
-
     private boolean success;
     private Map<String, String> symbols;
 }

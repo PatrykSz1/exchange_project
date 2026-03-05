@@ -11,9 +11,8 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Query {
-
-    private String from;
-    private String to;
-    private BigDecimal amount;
+public class ApiLayerConvertResponse {
+    private boolean success;
+    private String date;
+    private BigDecimal result;
 }

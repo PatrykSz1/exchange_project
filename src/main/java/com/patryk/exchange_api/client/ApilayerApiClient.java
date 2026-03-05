@@ -1,6 +1,6 @@
 package com.patryk.exchange_api.client;
 
-import com.patryk.exchange_api.model.ConvertResult;
+import com.patryk.exchange_api.model.ApiLayerConvertResponse;
 import com.patryk.exchange_api.model.Currencies;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +15,8 @@ public interface ApilayerApiClient {
     Currencies symbols();
 
     @GetMapping("/convert")
-    ConvertResult convert(@RequestParam String from,
-                          @RequestParam String to,
-                          @RequestParam BigDecimal amount);
+    ApiLayerConvertResponse convert(@RequestParam String from,
+                                    @RequestParam String to,
+                                    @RequestParam BigDecimal amount);
 }
 
