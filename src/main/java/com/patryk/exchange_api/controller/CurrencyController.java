@@ -6,6 +6,8 @@ import com.patryk.exchange_api.model.Currencies;
 import com.patryk.exchange_api.service.CurrencyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +20,12 @@ public class CurrencyController {
     private final CurrencyService service;
 
     @GetMapping
-    public Currencies getAllCurrencies() {
-        return service.getAllCurrencies();
+    public ResponseEntity<Currencies> getAllCurrencies() {
+        return new ResponseEntity<>(service.getAllCurrencies(), HttpStatus.OK);
     }
 
     @GetMapping("/convert")
-    public ConvertResponse convert(@Valid ConvertRequest convertRequest) {
-        return service.convert(convertRequest);
+    public ResponseEntity<ConvertResponse> convert(@Valid ConvertRequest convertRequest) {
+        return new ResponseEntity<>(service.convert(convertRequest), HttpStatus.OK);
     }
 }

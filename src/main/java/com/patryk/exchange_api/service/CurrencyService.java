@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CurrencyService {
-    //TODO Cachowanie
 
     private final ApilayerApiClient apilayerApiClient;
     private final MailService mailService;
@@ -40,32 +39,4 @@ public class CurrencyService {
         mailService.trySendConversionConfirmation(out);
         return out;
     }
-//
-//
-//    public Currencies getAllCurrencies() {
-//        return apilayerApiClient.symbols();
-//    }
-//
-//    public ConvertResult convert(ConvertRequest convertRequest) {
-//        if (convertRequest.getAmount() == null || convertRequest.getAmount().signum() < 0) {
-//            throw new ExchangeBadRequestException("amount must be >= 0");
-//        }
-//        String from = normalize(convertRequest.getFrom());
-//        String to = normalize(convertRequest.getTo());
-//
-//        ConvertResult result = apilayerApiClient.convert(from, to, convertRequest.getAmount());
-//
-//        try {
-//            mailService.sendConversionConfirmation(result);
-//        } catch (Exception ex) {
-//            throw new RuntimeException(ex);
-//        }
-//        return result;
-//    }
-//
-//    private String normalize(String s) {
-//        if (s == null || s.isBlank())
-//            throw new ExchangeBadRequestException("value is blank");
-//        return s.trim().toUpperCase(Locale.ROOT);
-//    }
 }
